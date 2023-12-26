@@ -1,0 +1,41 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateVehiclesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('vehicles', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('school_id');
+            $table->string('vehicle_no');
+            $table->string('make');
+            $table->string('color');
+            $table->string('model');
+            $table->string('year');
+            $table->string('plate_no');
+            $table->string('image')->nullable();
+            $table->unsignedBigInteger('vehicle_insurance_id');
+            $table->unsignedBigInteger('vehicle_type_id');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('vehicles');
+    }
+}

@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+p {
+	color: grey;
+}
+
+#heading {
+	text-transform: uppercase;
+	color: #2d64bc;
+	font-weight: normal;
+}
+
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+.form-card {
+	text-align: left;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*
+#msform input, #msform textarea {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    background-color: #ECEFF1;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+#msform input:focus, #msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #673AB7;
+    outline-width: 0;
+}
+*/
+/*Next Buttons*/
+#msform .action-button {
+    width: 100px;
+    background: #2d64bc;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 0px 10px 5px;
+    float: right;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+    background-color: #003c96;
+}
+
+/*Previous Buttons*/
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px 10px 0px;
+    float: right;
+}
+
+#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+    background-color: #000000;
+}
+
+/*The background card*/
+.card {
+    z-index: 0;
+    border: none;
+    position: relative;
+}
+
+/*FieldSet headings*/
+.fs-title {
+    font-size: 25px;
+    color: #2d64bc;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.purple-text {
+	color: #013c93;
+    font-weight: normal;
+}
+
+/*Step Count*/
+.steps {
+	font-size: 25px;
+    color: gray;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: right;
+}
+
+/*Field names*/
+.fieldlabels {
+	color: gray;
+	text-align: left;
+}
+#progressbar #profiles:before {
+    font-family: FontAwesome;
+    content: "\f007";
+}
+#progressbar #startreg:before {
+    font-family: FontAwesome;
+    content: "\f234";
+}
+.reg-nxt-btn:after{
+    font-family: FontAwesome;
+    content: "\f138";
+    margin-left: 7px;
+    font-weight: bold;
+}
+.reg-bck-btn:before{
+    font-family: FontAwesome;
+    content: "\f137";
+    margin-right: 7px;
+    font-weight: bold;
+}
+.reg-bck-btn{
+    width: 125px!important;
+}
+.reg-form-title{
+    margin-top: 50px;
+}
+#progressbar #signup:before {
+    font-family: FontAwesome;
+    content: "\f2bb";
+}
+#progressbar #contact-persons:before {
+    font-family: FontAwesome;
+    content: "\f2c1";
+}
+#progressbar #school-level:before {
+    font-family: FontAwesome;
+    content: "\f013";
+}
+#progressbar li.active:before, #progressbar li.active:after{
+    background: #2d64bc;
+}
+#progressbar li:before{
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: inline-block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    padding: 2px;
+    text-align: center;
+    margin-left: -25px;
+    margin-bottom: 27px;
+
+}
+#progressbar .step-menu{
+    margin-left: 10px;
+    font-weight: bold;
+}
+#progressbar li.active{
+    border-left: 2px #2e65bc solid;
+}
+#progressbar li{
+    list-style-type: none;
+    text-align: left;
+    border-left: 2px lightgray solid;
+}
+
+
+#progressbar #declaration-statement:before {
+    font-family: FontAwesome;
+    content: "\f7e2";
+}
+
+#progressbar #complete:before {
+    font-family: FontAwesome;
+    content: "\f733";
+}
+
+#progressbar #service-plan:before {
+    font-family: FontAwesome;
+    content: "\f013";
+}
+
+#progressbar #service-cotract:before {
+    font-family: FontAwesome;
+    content: "\f56c";
+}
+#progressbar #user-agreement:before {
+    font-family: FontAwesome;
+    content: "\f2b5";
+}
+#progressbar #declaration:before {
+    font-family: FontAwesome;
+    content: "\f757";
+}
+#progressbar #documentSubmission:before {
+    font-family: FontAwesome;
+    content: "\f570";
+}
+#progressbar #activationStatus:before {
+    font-family: FontAwesome;
+    content: "\f201";
+}
+#progressbar #temp-sig-in:before {
+    font-family: FontAwesome;
+    content: "\f2f6";
+}
+#progressbar #emverify:before {
+    font-family: FontAwesome;
+    content: "\f0a3";
+}
+#progressbar #completed:before {
+    font-family: FontAwesome;
+    content: "\f118";
+}
+
+#progressbar #payment_info:before{
+    font-family: FontAwesome;
+    content: "\f09d";
+}
+
+#progressbar #completed{
+    border-left: none!important;
+}
+
+
+
+/*Animated Progress Bar*/
+.progress {
+	height: 20px;
+}
+
+/*Fit image in bootstrap div*/
+.fit-image{
+    width: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,1643 @@
+[
+    {
+        "title": "our-property",
+        "data_feather": "layers",
+        "children": [
+            {
+                "title": "welcome-message",
+                "route": "our-school.get-welcome-message"
+            },
+            {
+                "title": "about-us",
+                "route": "SchoolAbout.index"
+            },
+            {
+                "title": "services",
+                "route": "SchoolServices.index"
+            },
+            {
+                "title": "board-of-directors",
+                "route": "account-holders.index",
+                "params": {
+                    "type": "board-of-director"
+                }
+            },
+            {
+                "title": "staff-directory",
+                "route": "staffDirectory.index"
+            },
+            {
+                "title": "departments",
+                "children": [
+                    {
+                        "title": "administrative",
+                        "route": "Departments.index",
+                        "params": {
+                            "type": "administrative"
+                        }
+                    },
+                    {
+                        "title": "educational",
+                        "route": "Departments.index",
+                        "params": {
+                            "type": "educational"
+                        }
+                    }
+                ]
+            },
+            {
+                "title": "rules-policies-and-procedures",
+                "route": "SchoolRulesPoliciesAndProcedures.index"
+            },
+            {
+                "title": "code-of-conduct",
+                "route": "SchoolCodeOfConduct.index"
+            },
+            {
+                "title": "rights-and-responsibilities",
+                "route": "SchoolRightsAndResponsibilities.index"
+            }
+        ]
+    },
+    {
+        "title": "information",
+        "data_feather": "info",
+        "children": [
+            {
+                "title": "information-sessions",
+                "route": "information.index",
+                "params": {
+                    "type": "session"
+                }
+            },
+            {
+                "title": "registration",
+                "children": [
+                    {
+                        "title": "process",
+                        "route": "information.index",
+                        "params": {
+                            "type": "registration-process"
+                        }
+                    },
+                    {
+                        "title": "requirements",
+                        "route": "information.index",
+                        "params": {
+                            "type": "registration-requirements"
+                        }
+                    },
+                    {
+                        "title": "deadlines",
+                        "route": "information.index",
+                        "params": {
+                            "type": "registration-deadlines"
+                        }
+                    }
+                ]
+            },
+            {
+                "title": "advanced-placement",
+                "route": "information.index",
+                "params": {
+                    "type": "advanced-placement"
+                }
+            },
+            {
+                "title": "competition-program",
+                "route": "information.index",
+                "params": {
+                    "type": "competition-program"
+                }
+            },
+            {
+                "title": "credential-assessments",
+                "route": "information.index",
+                "params": {
+                    "type": "credential-assessments"
+                }
+            },
+            {
+                "title": "deadlines",
+                "route": "information.index",
+                "params": {
+                    "type": "deadlines"
+                }
+            },
+            {
+                "title": "dismissal",
+                "route": "information.index",
+                "params": {
+                    "type": "dismissal"
+                }
+            },
+            {
+                "title": "hours-of-operations",
+                "route": "information.index",
+                "params": {
+                    "type": "hours-of-operations"
+                }
+            },
+            {
+                "title": "refund-cancellation-and-withdraw",
+                "route": "information.index",
+                "params": {
+                    "type": "refund-cancellation-and-withdraw"
+                }
+            },
+            {
+                "title": "vip",
+                "route": "information.index",
+                "params": {
+                    "type": "vip"
+                }
+            }
+        ]
+    },
+    {
+        "title": "new",
+        "data_feather": "plus-square",
+        "children": [
+            {
+                "title": "account-holders",
+                "data_feather": "users",
+                "permissions": [
+                    "account-holder.create"
+                ],
+                "children": [
+                    {
+                        "title": "banks",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "bank"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "board-of-director",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "board-of-director"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "employee",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "employee"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "financial-institution",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "financial-institution"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "government",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "government"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "campus",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "campus"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "head-office",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "head-office"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "investors",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "investor"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "landlord",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "landlord"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "parent-guardian",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "parent"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "sellers",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "seller"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "service-provider",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "service-provider"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "shareholders",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "shareholder"
+                        }
+                    },
+                    {
+                        "title": "students",
+                        "data_feather": "user-plus",
+                        "route": "students.index",
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "teacher-instructor",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "teacher"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "case-manager",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "case-manager"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "tesource-teacher",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.create",
+                        "params": {
+                            "type": "resource-teacher"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "visitor",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "visitor"
+                        },
+                        "permission": "account-holder.create"
+                    },
+                    {
+                        "title": "volunteers",
+                        "data_feather": "user-plus",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "volunteer"
+                        },
+                        "permission": "account-holder.create"
+                    }
+                ]
+            },
+            {
+                "title": "administrative",
+                "data_feather": "codepen",
+                "permissions": [
+                    "announcement.create",
+                    "daily-report.create",
+                    "form.create",
+                    "activity-log.create",
+                    "memorandum.create",
+                    "notice.create"
+                ],
+                "children": [
+                    {
+                        "title": "announcement",
+                        "data_feather": "file-plus",
+                        "route": "schoolAnnouncment.create",
+                        "permission": "announcement.create"
+                    },
+                    {
+                        "title": "company",
+                        "data_feather": "file-plus"
+                    },
+                    {
+                        "title": "contract",
+                        "data_feather": "file-plus"
+                    },
+                    {
+                        "title": "daily-report",
+                        "data_feather": "file-plus",
+                        "route": "DailyReport.index",
+                        "permission": "daily-report.create"
+                    },
+                    {
+                        "title": "event-date",
+                        "data_feather": "file-plus",
+                        "route": "Date.create"
+                    },
+                    {
+                        "title": "form",
+                        "data_feather": "file-plus",
+                        "route": "Form.index",
+                        "permission": "form.create"
+                    },
+                    {
+                        "title": "logs",
+                        "data_feather": "file-plus",
+                        "route": "ActivityLog.create",
+                        "permission": "activity-log.create"
+                    },
+                    {
+                        "title": "memo",
+                        "data_feather": "file-plus",
+                        "route": "Memorandum.create",
+                        "permission": "memorandum.create"
+                    },
+                    {
+                        "title": "message",
+                        "data_feather": "file-plus",
+                        "route": "SchoolMessage.create"
+                    },
+                    {
+                        "title": "notices",
+                        "data_feather": "file-plus",
+                        "route": "SchoolNotice.create",
+                        "permission": "notice.create"
+                    },
+                    {
+                        "title": "timesheet",
+                        "data_feather": "file-plus"
+                    }
+                ]
+            },
+            {
+                "title": "financial",
+                "data_feather": "dollar-sign",
+                "permissions": [
+                    "account.create",
+                    "bank-account.create",
+                    "fixed-asset.create",
+                    "inventory-item.create",
+                    "service-item.create",
+                    "tax.create"
+                ],
+                "children": [
+                    {
+                        "title": "database",
+                        "data_feather": "database",
+                        "permissions": [
+                            "account.create",
+                            "bank-account.create",
+                            "fixed-asset.create",
+                            "inventory-item.create",
+                            "service-item.create",
+                            "tax.create"
+                        ],
+                        "children": [
+                            {
+                                "title": "account",
+                                "data_feather": "book",
+                                "permissions": [
+                                    "account.create",
+                                    "bank-account.create"
+                                ],
+                                "children": [
+                                    {
+                                        "title": "all-accounts",
+                                        "data_feather": "check",
+                                        "route": "chart-accounts.create",
+                                        "permission": "accounts.creat"
+                                    },
+                                    {
+                                        "title": "bank-accounts",
+                                        "data_feather": "check",
+                                        "route": "bank-accounts.create",
+                                        "permission": "bank-account.create"
+                                    },
+                                    {
+                                        "title": "account-categories",
+                                        "data_feather": "check",
+                                        "route": "chart-account-categories.create",
+                                        "permission": "account.create"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "fixed-asset",
+                                "data_feather": "navigation-2",
+                                "permissions": [
+                                    "fixed-asset.create"
+                                ],
+                                "children": [
+                                    {
+                                        "title": "fixed-assets",
+                                        "data_feather": "check",
+                                        "route": "fixed-assets.create",
+                                        "permission": "fixed-asset.create"
+                                    },
+                                    {
+                                        "title": "fixed-asset-types",
+                                        "data_feather": "check",
+                                        "route": "fixed-asset-types.index",
+                                        "permission": "fixed-asset.create"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "utility-account",
+                                "data_feather": "navigation-2"
+                            },
+                            {
+                                "title": "inventory-item",
+                                "data_feather": "navigation-2",
+                                "route": "inventory-items.create",
+                                "permission": "inventory-item.create"
+                            },
+                            {
+                                "title": "services-item",
+                                "data_feather": "navigation-2",
+                                "permissions": [
+                                    "service-item.create"
+                                ],
+                                "children": [
+                                    {
+                                        "title": "service-items",
+                                        "data_feather": "check",
+                                        "route": "services.create",
+                                        "permission": "service-item.create"
+                                    },
+                                    {
+                                        "title": "service-types",
+                                        "data_feather": "check",
+                                        "route": "service-types.index",
+                                        "permission": "service-item.create"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "project",
+                                "data_feather": "navigation-2",
+                                "route": "projects.create"
+                            },
+                            {
+                                "title": "fees-and-charge",
+                                "data_feather": "navigation-2",
+                                "children": [
+                                    {
+                                        "title": "fees-and-charge",
+                                        "route": "fees-and-charges.index"
+                                    },
+                                    {
+                                        "title": "category",
+                                        "route": "fee-categories.index"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "taxable",
+                                "data_feather": "navigation-2",
+                                "permissions": [
+                                    "tax.create"
+                                ],
+                                "children": [
+                                    {
+                                        "title": "taxes",
+                                        "data_feather": "check",
+                                        "route": "taxes.create",
+                                        "permission": "tax.create"
+                                    },
+                                    {
+                                        "title": "tax-types",
+                                        "data_feather": "check",
+                                        "route": "tax-types.index",
+                                        "permission": "tax.create"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "announcement",
+        "route": "schoolAnnouncment.index"
+    },
+    {
+        "title": "news "
+    },
+    {
+        "title": "events",
+        "route": "Date.index"
+    },
+    {
+        "title": "calendar"
+    },
+    {
+        "title": "profiles",
+        "permissions": [
+            "account.view",
+            "fixed-asset.view",
+            "inventory-item.view",
+            "school-profile.view",
+            "course.view",
+            "tax.view",
+            "account-holder.view",
+            "text-book.view"
+        ],
+        "children": [
+            {
+                "title": "chart-of-accounts",
+                "route": "chart-accounts.index",
+                "permission": "account.index"
+            },
+            {
+                "title": "company"
+            },
+            {
+                "title": "contract"
+            },
+            {
+                "title": "fixed-asset",
+                "route": "fixed-assets.index",
+                "permission": "fixed-asset.view"
+            },
+            {
+                "title": "inventory-item",
+                "route": "inventory-items.index",
+                "permission": "inventory-item.view"
+            },
+            {
+                "title": "project",
+                "route": "projects.index"
+            },
+            {
+                "title": "service-item",
+                "route": "services.index",
+                "permission": "service-item.view"
+            },
+            {
+                "title": "taxes",
+                "route": "taxes.index",
+                "permission": "tax.view"
+            },
+            {
+                "title": "utility-account"
+            },
+            {
+                "title": "account-holders",
+                "permissions": [
+                    "account-holder.view",
+                    "student-registration.view"
+                ],
+                "children": [
+                    {
+                        "title": "banks",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "bank"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "board-of-director",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "board-of-director"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "employee",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "employee"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "financial-institution",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "financial-institution"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "government",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "government"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "campus",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "campus"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "guardian",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "guardian"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "head-office",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "head-office"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "instructor",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "instructor"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "investors",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "investor"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "landlord",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "landlord"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "parent",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "parent"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "sellers",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "sellers"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "service-provider",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "service-provider"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "shareholders",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "shareholder"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "students",
+                        "route": "students.index",
+                        "permission": "student-registration.view"
+                    },
+                    {
+                        "title": "teacher",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "teacher"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "visitor",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "visitor"
+                        },
+                        "permission": "account-holder.view"
+                    },
+                    {
+                        "title": "volunteers",
+                        "route": "account-holders.index",
+                        "params": {
+                            "type": "volunteer"
+                        },
+                        "permission": "account-holder.view"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "property-management",
+        "children": [
+            {
+                "title": "my-calendar",
+                "route": "class-management.calendar"
+            },
+            {
+                "title": "notice",
+                "route": "SchoolNotice.index"
+            },
+            {
+                "title": "announcement",
+                "route": "schoolAnnouncment.index"
+            }
+        ]
+    },
+    {
+        "title": "operating-modules",
+        "children": [
+            {
+                "title": "facility-management",
+                "children": [
+                    {
+                        "title": "rooms",
+                        "children": [
+                            {
+                                "title": "Room List",
+                                "route": "rooms.index"
+                            },
+                            {
+                                "title": "room-type",
+                                "route": "room-types.index"
+                            }
+                        ]
+                    },
+                    {
+                        "title": "inspection-checklist"
+                    },
+                    {
+                        "title": "transfer-fixed-assets",
+                        "route": "get-transfer-fixed-asset"
+                    },
+                    {
+                        "title": "job-order",
+                        "route": "job-orders.index"
+                    },
+                    {
+                        "title": "safety-devices-checklist",
+                        "route": "safety-devices"
+                    }
+                ]
+            },
+            {
+                "title": "fixed-assets",
+                "route": "fixed-assets.index"
+            },
+            {
+                "title": "general-administrative",
+                "children": [
+                    {
+                        "title": "form",
+                        "route": "Form.index"
+                    },
+                    {
+                        "title": "memos",
+                        "route": "Memorandum.index"
+                    },
+                    {
+                        "title": "logs",
+                        "children": [
+                            {
+                                "title": "car-mileage",
+                                "route": "car-mileage-logs.index"
+                            },
+                            {
+                                "title": "employee-attendance-log",
+                                "route": "employee-attendance-logs.index"
+                            },
+                            {
+                                "title": "phones-and-emails",
+                                "route": "mail-logs.index"
+                            },
+                            {
+                                "title": "keys-and-fobs",
+                                "route": "key-logs.index"
+                            },
+                            {
+                                "title": "cheques-and-bankings",
+                                "route": "cheque-banking-logs.index"
+                            },
+                            {
+                                "title": "parking",
+                                "route": "parking-logs.index"
+                            },
+                            {
+                                "title": "visitor",
+                                "route": "visitor-logs.index"
+                            },
+                            {
+                                "title": "shipping-log",
+                                "route": "shipping-logs.index"
+                            },
+                            {
+                                "title": "receiving-log",
+                                "route": "receiving-logs.index"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "human-resource"
+            },
+            {
+                "title": "project-developments",
+                "route": "projects.index"
+            },
+            {
+                "title": "repair-and-maintenance",
+                "children": [
+                    {
+                        "title": "job-order",
+                        "route": "job-orders.index"
+                    },
+                    {
+                        "title": "maintenance-checklist"
+                    }
+                ]
+            },
+            {
+                "title": "parking",
+                "children": [
+                    {
+                        "title": "parking-lot",
+                        "route": "parking-lots.index"
+                    },
+                    {
+                        "title": "parking-stalls",
+                        "route": "parking-stalls.index"
+                    },
+                    {
+                        "title": "parker-types",
+                        "route": "parker-types.index"
+                    },
+                    {
+                        "title": "parkers",
+                        "route": "parkers.index"
+                    },
+                    {
+                        "title": "parking-rates",
+                        "route": "parking-rates.index"
+                    },
+                    {
+                        "title": "stall-allocation",
+                        "route": "parking-stall-allocation.index"
+                    },
+                    {
+                        "title": "vehicles",
+                        "children": [
+                            {
+                                "title": "vehicles",
+                                "route": "vehicles.index"
+                            },
+                            {
+                                "title": "vehicle-types",
+                                "route": "vehicle-types.index"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "storage-lockers",
+                "children": [
+                    {
+                        "title": "storage-lockers",
+                        "route": "storage-lockers.index"
+                    },
+                    {
+                        "title": "lockers",
+                        "route": "lockers.index"
+                    }
+                ]
+            },
+            {
+                "title": "staffing ",
+                "children": [
+                    {
+                        "title": "daily-report",
+                        "route": "DailyReport.index"
+                    },
+                    {
+                        "title": "incident-report",
+                        "route": "incident-reports.index"
+                    },
+                    {
+                        "title": "time-sheet",
+                        "route": "time-sheets.index"
+                    },
+                    {
+                        "title": "request",
+                        "route": "requests.index"
+                    }
+                ]
+            },
+            {
+                "title": "booking-and-scheduling",
+                "children": [
+                    {
+                        "title": "booking",
+                        "route": "bookings.index"
+                    },
+                    {
+                        "title": "scheduling",
+                        "children": [
+                            {
+                                "title": "schedules",
+                                "route": "schedules.index"
+                            },
+                            {
+                                "title": "schedule-types",
+                                "route": "schedule-types.index"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "template-builder",
+                "route": "templates.index"
+            }
+        ]
+    },
+    {
+        "title": "accounting",
+        "children": [
+            {
+                "title": "open"
+            },
+            {
+                "title": "new",
+                "children": [
+                    {
+                        "title": "profiles",
+                        "children": [
+                            {
+                                "title": "property"
+                            },
+                            {
+                                "title": "account-holders"
+                            },
+                            {
+                                "title": "chart-of-accounts",
+                                "route": "chart-accounts.index"
+                            },
+                            {
+                                "title": "taxes"
+                            },
+                            {
+                                "title": "service-item"
+                            },
+                            {
+                                "title": "inventory-item"
+                            },
+                            {
+                                "title": "fixed-asset"
+                            },
+                            {
+                                "title": "project"
+                            },
+                            {
+                                "title": "utility-account"
+                            },
+                            {
+                                "title": "contracts"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "profiles",
+                "children": [
+                    {
+                        "title": "property"
+                    },
+                    {
+                        "title": "account-holders"
+                    },
+                    {
+                        "title": "chart-of-accounts"
+                    },
+                    {
+                        "title": "taxes"
+                    },
+                    {
+                        "title": "service-item"
+                    },
+                    {
+                        "title": "inventory-item"
+                    },
+                    {
+                        "title": "fixed-asset"
+                    },
+                    {
+                        "title": "project"
+                    },
+                    {
+                        "title": "utility-account"
+                    },
+                    {
+                        "title": "contracts"
+                    }
+                ]
+            },
+            {
+                "title": "calendar"
+            },
+            {
+                "title": "find"
+            },
+            {
+                "title": "transaction"
+            },
+            {
+                "title": "batches-and-recurring"
+            },
+            {
+                "title": "modules"
+            },
+            {
+                "title": "hubs"
+            },
+            {
+                "title": "collection"
+            }
+        ]
+    },
+    {
+        "title": "users-hub",
+        "children": [
+            {
+                "title": "students-hub",
+                "route": "user-hub.index",
+                "params": {
+                    "type": "students"
+                }
+            },
+            {
+                "title": "parents-hub",
+                "route": "user-hub.index",
+                "params": {
+                    "type": "parent"
+                }
+            },
+            {
+                "title": "employees-hub",
+                "route": "user-hub.index",
+                "params": {
+                    "type": "employee"
+                }
+            },
+            {
+                "title": "teachers-hub",
+                "route": "user-hub.index",
+                "params": {
+                    "type": "teacher"
+                }
+            },
+            {
+                "title": "resource-teachers-hub",
+                "route": "user-hub.index",
+                "params": {
+                    "type": "resource-teacher"
+                }
+            },
+            {
+                "title": "case-managers-hub",
+                "route": "user-hub.index",
+                "params": {
+                    "type": "case-manager"
+                }
+            },
+            {
+                "title": "sellers-hub",
+                "route": "user-hub.index",
+                "params": {
+                    "type": "seller"
+                }
+            },
+            {
+                "title": "service-providers-hub",
+                "route": "user-hub.index",
+                "params": {
+                    "type": "service-provider"
+                }
+            }
+        ]
+    },
+    {
+        "title": "messages"
+    },
+    {
+        "title": "discussion-board"
+    },
+    {
+        "title": "postings",
+        "children": [
+            {
+                "title": "assessments"
+            },
+            {
+                "title": "discussion-board"
+            },
+            {
+                "title": "event"
+            },
+            {
+                "title": "marks"
+            },
+            {
+                "title": "memos"
+            },
+            {
+                "title": "news"
+            }
+        ]
+    },
+    {
+        "title": "notices",
+        "children": [
+            {
+                "title": "send"
+            },
+            {
+                "title": "received"
+            }
+        ]
+    },
+    {
+        "title": "reports",
+        "children": [
+            {
+                "title": "profiles"
+            },
+            {
+                "title": "account-holders"
+            },
+            {
+                "title": "course"
+            },
+            {
+                "title": "subjects"
+            },
+            {
+                "title": "programs"
+            },
+            {
+                "title": "textbooks-and-supplies "
+            },
+            {
+                "title": "assessments"
+            },
+            {
+                "title": "marks "
+            },
+            {
+                "title": "financial "
+            },
+            {
+                "title": "purchase "
+            },
+            {
+                "title": "sales"
+            },
+            {
+                "title": "receipts"
+            },
+            {
+                "title": "payments "
+            },
+            {
+                "title": "banking-deposits"
+            },
+            {
+                "title": "credit-cards-deposits "
+            },
+            {
+                "title": "general-journal "
+            },
+            {
+                "title": "all-transactions"
+            },
+            {
+                "title": "accounts-receivable"
+            },
+            {
+                "title": "accounts-payable "
+            },
+            {
+                "title": "ap-aging-report"
+            },
+            {
+                "title": "ar-aging-report"
+            },
+            {
+                "title": "budget-vs-Actual "
+            },
+            {
+                "title": "financial-statements",
+                "children": [
+                    {
+                        "title": "cash-flow"
+                    },
+                    {
+                        "title": "income-statement "
+                    },
+                    {
+                        "title": "balance-sheet "
+                    },
+                    {
+                        "title": "financial-ratios "
+                    }
+                ]
+            },
+            {
+                "title": "registrations",
+                "children": [
+                    {
+                        "title": "register "
+                    },
+                    {
+                        "title": "cancellation"
+                    },
+                    {
+                        "title": "withdraw "
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "settings",
+        "children": [
+            {
+                "title": "time-and-date-format",
+                "route": "time-and-date-format.index"
+            },
+            {
+                "title": "roles",
+                "children": [
+                    {
+                        "title": "role-list",
+                        "route": "roles.index"
+                    },
+                    {
+                        "title": "update-user-role",
+                        "route": "update-user-roles.create"
+                    }
+                ]
+            },
+            {
+                "title": "invoice-terms"
+            },
+            {
+                "title": "reminders"
+            },
+            {
+                "title": "ssers-access-days-and-time"
+            },
+            {
+                "title": "new-fiscal-year"
+            },
+            {
+                "title": "new-term"
+            },
+            {
+                "title": "blind-screen"
+            },
+            {
+                "title": "background-colour"
+            },
+            {
+                "title": "activations",
+                "children": [
+                    {
+                        "title": "tax-rate "
+                    },
+                    {
+                        "title": "memorized-transactions"
+                    },
+                    {
+                        "title": "chart-of-account "
+                    },
+                    {
+                        "title": "account-holders",
+                        "children": [
+                            {
+                                "title": "customers"
+                            },
+                            {
+                                "title": "sellers"
+                            },
+                            {
+                                "title": "employees"
+                            },
+                            {
+                                "title": "board-of-director "
+                            },
+                            {
+                                "title": "employee"
+                            },
+                            {
+                                "title": "instructor"
+                            },
+                            {
+                                "title": "guardian"
+                            },
+                            {
+                                "title": "parent"
+                            },
+                            {
+                                "title": "sellers"
+                            },
+                            {
+                                "title": "service-provider"
+                            },
+                            {
+                                "title": "students"
+                            },
+                            {
+                                "title": "teacher"
+                            },
+                            {
+                                "title": "visitor"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "government",
+                "children": [
+                    {
+                        "title": "federal "
+                    },
+                    {
+                        "title": "state-provincial"
+                    },
+                    {
+                        "title": "tax-office"
+                    },
+                    {
+                        "title": "ministry-of-education"
+                    },
+                    {
+                        "title": "school-head-office"
+                    }
+                ]
+            },
+            {
+                "title": "other-names",
+                "children": [
+                    {
+                        "title": "bank"
+                    },
+                    {
+                        "title": "credit-card-company"
+                    },
+                    {
+                        "title": "landlord"
+                    },
+                    {
+                        "title": "tenant"
+                    },
+                    {
+                        "title": "shareholder"
+                    },
+                    {
+                        "title": "investor"
+                    },
+                    {
+                        "title": "inter-company"
+                    },
+                    {
+                        "title": "head-office"
+                    },
+                    {
+                        "title": "branch"
+                    }
+                ]
+            },
+            {
+                "title": "company-and-limits",
+                "children": [
+                    {
+                        "title": "numbers-of-classroom"
+                    },
+                    {
+                        "title": "classes-hours"
+                    },
+                    {
+                        "title": "subjects-credits"
+                    },
+                    {
+                        "title": "course-credits"
+                    },
+                    {
+                        "title": "subjects-program"
+                    },
+                    {
+                        "title": "course-program "
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "system-utilities"
+    },
+    {
+        "title": "contacts"
+    },
+    {
+        "title": "messages",
+        "children": [
+            {
+                "title": "new-message",
+                "children": [
+                    {
+                        "title": "inbox"
+                    },
+                    {
+                        "title": "sent"
+                    },
+                    {
+                        "title": "flagged"
+                    },
+                    {
+                        "title": "blocked "
+                    },
+                    {
+                        "title": "reported"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "feedback",
+        "children": [
+            {
+                "title": "educational-quality "
+            },
+            {
+                "title": "teachers "
+            },
+            {
+                "title": "instructors "
+            },
+            {
+                "title": "students "
+            },
+            {
+                "title": "staff "
+            },
+            {
+                "title": "school-market"
+            },
+            {
+                "title": "service-providers"
+            },
+            {
+                "title": "sellers"
+            },
+            {
+                "title": "suggestion "
+            },
+            {
+                "title": "recommendation "
+            },
+            {
+                "title": "safety-and-security "
+            },
+            {
+                "title": "others"
+            }
+        ]
+    },
+    {
+        "title": "user-account"
+    },
+    {
+        "title": "admin-panel "
+    },
+    {
+        "title": "school-optimizer-account",
+        "children": [
+            {
+                "title": "message",
+                "children": [
+                    {
+                        "title": "new "
+                    },
+                    {
+                        "title": "inbox"
+                    },
+                    {
+                        "title": "sent "
+                    }
+                ]
+            },
+            {
+                "title": "service-plan"
+            },
+            {
+                "title": "billing-cycles "
+            },
+            {
+                "title": "next-charge-date "
+            },
+            {
+                "title": "account-status"
+            },
+            {
+                "title": "your-invoices "
+            },
+            {
+                "title": "tax-report"
+            },
+            {
+                "title": "account-statements "
+            },
+            {
+                "title": "contact-us ",
+                "children": [
+                    {
+                        "title": "referral-discount"
+                    },
+                    {
+                        "title": "financial "
+                    },
+                    {
+                        "title": "safety-and-security-issue "
+                    },
+                    {
+                        "title": "improvement suggestion "
+                    },
+                    {
+                        "title": "technical-issue "
+                    },
+                    {
+                        "title": "work-with-us "
+                    }
+                ]
+            }
+        ]
+    }
+]
