@@ -29,7 +29,7 @@ class AuthenticateController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-
+        session(['login_time' => now()]);
         $credentials = array(
             'email' => $request->input('email'),
             'password' => $request->input('password')

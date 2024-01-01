@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRoomAssetsTable extends Migration
+class CreateCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateRoomAssetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('room_assets', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('room_id');
-            $table->unsignedBigInteger('asset_id');
-            $table->string('location');
+            $table->string('name');
+            $table->string('type');
+            $table->string('login_duration');
+            $table->string('username')->nullable();
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateRoomAssetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('room_assets');
+        Schema::dropIfExists('companies');
     }
 }

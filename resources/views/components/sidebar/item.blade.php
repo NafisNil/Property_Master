@@ -1,3 +1,4 @@
+
 <div>
     @if(isset($item['children']) && count($item['children']) > 0)
         @if(auth()->user()->hasRole('SuperAdmin') || (!empty($item['permissions']) && auth()->user()->hasAnyPermission($item['permissions'])))
@@ -15,7 +16,9 @@
                 @foreach($item['children'] as $childItem)
                     <x-sidebar.item :level="$level+1" :item="$childItem"></x-sidebar.item>
                 @endforeach
+                   
             </ul>
+           
         </li>
         @endif
     @else

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdditionDeductionsTable extends Migration
+class CreateNewfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreateAdditionDeductionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('addition_deductions', function (Blueprint $table) {
+        Schema::create('newfiles', function (Blueprint $table) {
             $table->id();
+            $table->string('company')->nullable();
+            $table->string('file_no')->nullable();
+            $table->string('fiscal_year')->nullable();
+            $table->string('last_modification')->nullable();
+            $table->text('last_user')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateAdditionDeductionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addition_deductions');
+        Schema::dropIfExists('newfiles');
     }
 }

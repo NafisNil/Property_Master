@@ -168,6 +168,7 @@ return [
         Brian2694\Toastr\ToastrServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Item Providers...
@@ -232,7 +233,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
-
+        'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
 
     ],
 

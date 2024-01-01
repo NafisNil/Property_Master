@@ -1,5 +1,10 @@
 <?php
 
+//nafis controller
+use App\Http\Controllers\NewfileController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\WelcomeController;
+//nafis controller
 use App\Http\Controllers\Admin\AccountHolderController;
 use App\Http\Controllers\Admin\JobOrderController;
 use App\Http\Controllers\AuthenticateController;
@@ -119,6 +124,7 @@ use App\Http\Controllers\Admin\AssessmentController;
 use Illuminate\Support\Facades\Storage;
 
 
+
 /*
   |--------------------------------------------------------------------------
   | Web Routes
@@ -137,8 +143,12 @@ Route::get('clean-all', [CleanAllController::class, 'index'])->name('cleanAll.in
 Route::get('/', [FrontEndController::class, 'index'])
     ->name('frontEnd.index');
 
-Route::middleware(['auth', 'check_registration_complete', 'lang'])->group(function () {
-
+Route::middleware(['auth', 'check_registration_complete', 'lang','logintime'])->group(function () {
+  //nafis route
+  Route::resource('newfile', NewfileController::class);
+  Route::resource('company', CompanyController::class);
+  Route::resource('welcome', WelcomeController::class);
+  //nafis route
     Route::group(['namespace' => 'Admin', 'middleware' => 'prevent-back-history'], function () {
         Route::get('information', [InformationController::class, 'index'])->name('information.index');
         Route::get('annoncment', [AnnoncmentController::class, 'index'])->name('annoncment.index');
@@ -366,6 +376,11 @@ Route::middleware(['auth', 'check_registration_complete', 'lang'])->group(functi
 
         Route::post('/register/step-one', [RegStepController::class, 'saveStepOne'])
             ->name('reg.step-one');
+
+
+
+
+      
 
         //Route::get('welcome-messages', [MessagesController::class, 'welcome'])->name('messages.welcome');
     });
