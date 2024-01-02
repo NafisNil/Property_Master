@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWelcomesTable extends Migration
+class CreateWhatnewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateWelcomesTable extends Migration
      */
     public function up()
     {
-        Schema::create('welcomes', function (Blueprint $table) {
+        Schema::create('whatnews', function (Blueprint $table) {
             $table->id();
-            $table->text('desc');
-            $table->integer('status')->default(0);
-            $table->integer('post')->default(0)->nullable();
+            $table->string('issued_by');
+            $table->string('subject');
+            $table->text('details');
+            $table->string('receivers');
+            $table->string('acknowledge')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateWelcomesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('welcomes');
+        Schema::dropIfExists('whatnews');
     }
 }

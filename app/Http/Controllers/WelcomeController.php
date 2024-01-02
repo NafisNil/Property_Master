@@ -43,7 +43,8 @@ class WelcomeController extends Controller
         //
         $welcome = Welcome::create([
             'desc' => $request->desc,
-            
+            'status' => $request->status,
+            'post' => $request->post
 
         ]);
 
@@ -72,6 +73,7 @@ class WelcomeController extends Controller
     public function edit(Welcome $welcome)
     {
         //
+        return view('welcome.edit', ['welcome' => $welcome]);
     }
 
     /**
@@ -81,9 +83,12 @@ class WelcomeController extends Controller
      * @param  \App\Models\Welcome  $welcome
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Welcome $welcome)
+    public function update(WelcomeRequest $request, Welcome $welcome)
     {
         //
+        $welcome->update($request->all());
+        toastr()->success('Information updated!');
+        return redirect()->route('welcome.index');
     }
 
     /**
@@ -95,5 +100,36 @@ class WelcomeController extends Controller
     public function destroy(Welcome $welcome)
     {
         //
+        $welcome->delete();
+        toastr()->success('Information deleted!');
+        return redirect()->route('welcome.index');
+    }
+
+    public function active($id){
+        $welcome  =Welcome::find($id);
+        if ($welcome->status == 0) {
+            # code...
+            $welcome->status = 1;
+        }else{
+            $welcome->status = 0;
+        }
+
+        $welcome->save();
+        toastr()->success('Information updated!');
+        return redirect()->route('welcome.index');
+    }
+
+    public function post($id){
+        $welcome  =Welcome::find($id);
+        if ($welcome->post == 0) {
+            # code...
+            $welcome->post = 1;
+        }else{
+            $welcome->post = 0;
+        }
+      
+        $welcome->save();
+        toastr()->success('Information updated!');
+        return redirect()->route('welcome.index');
     }
 }

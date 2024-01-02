@@ -1,23 +1,20 @@
 @extends('layouts.master')
 
 @section('page_title')
-    Welcome Page
+    Newfile
 @endsection
 
 @section('content')
 
 <x-content>
     <x-slot name="header">
-        <h3>Welcome</h3>
-        @if ($fileCount <1)
-        <a href="{{ route('welcome.create') }}">
+        <h3>Newfile</h3>
+        <a href="{{ route('newfile.create') }}">
             <button type="button" class="btn btn-primary mb-2 text-right">
                 <i class="fa fa-plus mr-2"></i>
-                Add Welcome Message
+                Add Newfile
             </button>
         </a>
-        @endif
-
     </x-slot>
 </x-content>
 
@@ -26,63 +23,63 @@
         <div class="card">
             <div class="card-body">
 
-                <h6 class="card-title">Welcome Message</h6> 
+                <h6 class="card-title">New file</h6> - <h6>Total Files : {{ @$fileCount }}</h6> <br>
                 <div class="table-responsive">
 
 
                     <table id="datatable" class="table table-bordered">
                         <thead>
                         <tr>
-                            <th class="text-center">Message</th>
-                            <th class="text-center">Status</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">File No</th>
+                            <th class="text-center">Fiscal Year</th>
+                            <th class="text-center">Last Modification</th>
+                            <th class="text-center">Last User</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @if(!empty($welcome))
+                        @if(!empty($newfile))
 
-                          
+                            @foreach($newfile as $key => $item)
 
                                 <tr>
-                                    <td class="text-left">{!! substr($welcome->desc , 0, 120) !!}...
-                                        </td>
-                                        <td class="text-left">@if ($welcome->status == '0')
-                                            <span class="text-danger">Inactive</span>
-                                        @else
-                                        <span class="text-success">Active</span>
-                                        @endif
-                                        </td>
+                                    <td class="text-left">
+                                        @php
+                                            $company = App\Models\Company::where('id', $item->company)->first();
+                                        @endphp
+                                        {{$company->name}}</td>
+                                    <td class="text-left">{{$item->file_no}}</td>
+                                    <td class="text-left">{{$item->fiscal_year}}</td>
+                                    <td class="text-left">{{$item->updated_at->format('d M, Y')}}</td>
+                                    <td class="text-left">
+                                        @php
+                                            $user = App\Models\User::where('id', $item->last_user)->first();
+                                        @endphp
+                                        {{ $user->user_name }}
+                                    </td>
                                     <td style=" text-align: center;">
-                                        
-                                                @if ($welcome->status == '0')
-                                                    <a href="{{ route('welcome.active', [$welcome->id]) }}" class="btn btn-sm btn-success">Active</a>
-                                                @else
-                                                    <a href="{{ route('welcome.active',[$welcome->id]) }}" class="btn btn-sm btn-danger">Inactive</a>
-                                                @endif
-
-                                                @if ($welcome->post == '0')
-                                                <a href="{{ route('welcome.post',[$welcome->id]) }}" class="btn btn-sm btn-success">Post</a>
-                                            @else
-                                                <a href="{{ route('welcome.post',[$welcome->id]) }}" class="btn btn-sm btn-danger">Repost</a>
-                                            @endif
-                                        
+                                        <button
+                                            class="btn btn-info view-account-holder-btn"
+                                            data-href="{{route('newfile.show', [$item])}}">View
+                                        </button>
                                         <a
-                                            href="{{route('welcome.edit', [$welcome])}}"
+                                            href="{{route('newfile.edit', [$item])}}"
                                             class="btn btn-primary">Edit</a>
                                         <button
-                                            data-href="{{route('welcome.destroy', [$welcome])}}"
+                                            data-href="{{route('newfile.destroy', [$item])}}"
                                             class="btn btn-danger delete-account-holder-btn"
                                         >Delete
                                         </button>
 
-                                        {!! Form::open(['url' => route('welcome.destroy', [$welcome]), 'method' => 'delete', 'id'=>'deleteAccountHolderForm']) !!}
+                                        {!! Form::open(['url' => route('newfile.destroy', [$item]), 'method' => 'delete', 'id'=>'deleteAccountHolderForm']) !!}
 
                                         {!! Form::close() !!}
 
                                     </td>
 
                                 </tr>
-                           
+                            @endforeach
                         @endif
                         </tbody>
                     </table>

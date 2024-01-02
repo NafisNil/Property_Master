@@ -4,7 +4,7 @@
 @endpush
 
 @section('page_title')
-    What  is New - Edit
+    Newfile {{@$newfile->name}} Create
 @endsection
 
 @section('content')
@@ -12,16 +12,15 @@
     @include('partials.error-alert', ['errors' => $errors])
     <x-content>
         <x-slot name="header">
-            <h3>{{__('update-what is new')}}</h3>
+            <h3>{{__('update-Newfile')}}</h3>
         </x-slot>
-        <form action="{{ route('whatnew.update', [$newfile]) }}" method="POST">
+        <form action="{{ route('newfile.store') }}" method="POST">
             @csrf
-            @method('PUT')
-            @include('whatnew.form')
-            
+            @include('newfile.form')
         </form>
     </x-content>
 @endsection
 
 @push('js')
+
 @endpush
