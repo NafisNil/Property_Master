@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <div class="form-group">
             <label for="name">Issued by</label>
-            <input type="text" name="issued_by" id="" value="{{ Auth::user()->name}}" style="width: 100%; padding: 10px; height: auto;"  >
+            <input type="text" name="issued_by" id="" value="{{ Auth::user()->user_name}}" style="width: 100%; padding: 10px; height: auto;"  readonly>
         </div>
         
         <div class="form-group">
@@ -12,8 +12,18 @@
         
         <div class="form-group">
             <label for="name">Details</label>
-            <textarea name="desc" rows="4" cols="50" style="width: 100%; padding: 10px; height: auto;"
-            >{{ @$welcome->desc }}</textarea>
+            <textarea name="details" rows="4" cols="50" style="width: 100%; padding: 10px; height: auto;"
+            >{{ @$whatnew->details }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Receivers </label>
+            <input type="text" name="receivers" id="" value="{!!old('receivers',@$whatnew->receivers)!!}" style="width: 100%; padding: 10px; height: auto;"  >
+        </div>
+
+        <div class="form-group">
+            <label for="name">Acknowledge </label>
+            <input type="text" name="acknowledge" id="" value="{!!old('acknowledge',@$whatnew->acknowledge)!!}" style="width: 100%; padding: 10px; height: auto;"  >
         </div>
     </div>
 </div>
@@ -22,6 +32,6 @@
 <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
 <script>
     
-    CKEDITOR.replace( 'message' );
+    CKEDITOR.replace( 'details' );
 </script>
 @endpush

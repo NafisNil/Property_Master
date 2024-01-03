@@ -8,11 +8,11 @@
 
 <x-content>
     <x-slot name="header">
-        <h3>Newfile</h3>
-        <a href="{{ route('newfile.create') }}">
+        <h3>What is new</h3>
+        <a href="{{ route('whatnew.create') }}">
             <button type="button" class="btn btn-primary mb-2 text-right">
                 <i class="fa fa-plus mr-2"></i>
-                Add Newfile
+                Add Waht is new
             </button>
         </a>
     </x-slot>
@@ -23,56 +23,53 @@
         <div class="card">
             <div class="card-body">
 
-                <h6 class="card-title">New file</h6> - <h6>Total Files : {{ @$fileCount }}</h6> <br>
+                <h6 class="card-title">What is new</h6> - <h6>Total Files : {{ @$fileCount }}</h6> <br>
                 <div class="table-responsive">
 
 
                     <table id="datatable" class="table table-bordered">
                         <thead>
                         <tr>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">File No</th>
-                            <th class="text-center">Fiscal Year</th>
-                            <th class="text-center">Last Modification</th>
-                            <th class="text-center">Last User</th>
+                            <th class="text-center">Posted Date</th>
+                            <th class="text-center">Issued By</th>
+                            <th class="text-center">Subject</th>
+                            <th class="text-center">Details</th>
+                            <th class="text-center">Receivers</th>
+                            <th class="text-center">Acknowledge</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @if(!empty($newfile))
+                        @if(!empty($whatnew))
 
-                            @foreach($newfile as $key => $item)
+                            @foreach($whatnew as $key => $item)
 
                                 <tr>
                                     <td class="text-left">
-                                        @php
-                                            $company = App\Models\Company::where('id', $item->company)->first();
-                                        @endphp
-                                        {{$company->name}}</td>
-                                    <td class="text-left">{{$item->file_no}}</td>
-                                    <td class="text-left">{{$item->fiscal_year}}</td>
-                                    <td class="text-left">{{$item->updated_at->format('d M, Y')}}</td>
+                                        {{ $item->created_at->format('d M, Y') }}</td>
                                     <td class="text-left">
-                                        @php
-                                            $user = App\Models\User::where('id', $item->last_user)->first();
-                                        @endphp
-                                        {{ $user->user_name }}
-                                    </td>
+                                        {{ $item->issued_by }}</td>
+                                    <td class="text-left">{{$item->subject}}</td>
+                                    <td class="text-left" title="{!! $item->details !!}">{!! substr($item->details , 0, 120) !!}...</td>
+                                    <td class="text-left">{{$item->receivers}}</td>
+                                    <td class="text-left">{{$item->acknowledge}}</td>
+                                   
                                     <td style=" text-align: center;">
-                                        <button
-                                            class="btn btn-info view-account-holder-btn"
-                                            data-href="{{route('newfile.show', [$item])}}">View
-                                        </button>
                                         <a
-                                            href="{{route('newfile.edit', [$item])}}"
+                                            href="{{route('whatnew.show', [$item])}}"
+                                            class="btn btn-info">View</a>
+                                            
+                    
+                                        <a
+                                            href="{{route('whatnew.edit', [$item])}}"
                                             class="btn btn-primary">Edit</a>
                                         <button
-                                            data-href="{{route('newfile.destroy', [$item])}}"
+                                            data-href="{{route('whatnew.destroy', [$item])}}"
                                             class="btn btn-danger delete-account-holder-btn"
                                         >Delete
                                         </button>
 
-                                        {!! Form::open(['url' => route('newfile.destroy', [$item]), 'method' => 'delete', 'id'=>'deleteAccountHolderForm']) !!}
+                                        {!! Form::open(['url' => route('whatnew.destroy', [$item]), 'method' => 'delete', 'id'=>'deleteAccountHolderForm']) !!}
 
                                         {!! Form::close() !!}
 

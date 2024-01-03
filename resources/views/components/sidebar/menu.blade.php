@@ -32,6 +32,12 @@
                     Welcome
                 </a>
            </li>
+           <li>
+            <a href="{{ route('whatnew.index') }}" class=" {{$route == 'whatnew.index'?'active':''}}" >
+                <i class="link-icon" data-feather="layers"></i> 
+                What is new
+            </a>
+       </li>
                 @foreach($items as $item)
                     <div>
                         <x-sidebar.item :item="$item"></x-sidebar.item>

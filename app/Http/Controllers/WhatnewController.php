@@ -16,7 +16,7 @@ class WhatnewController extends Controller
     public function index()
     {
         //
-        $whatnew = Whatnew::count();
+        $fileCount = Whatnew::count();
         $whatnew = Whatnew::orderBy('id', 'desc')->get();
         return view('whatnew.index', ['whatnew' => $whatnew, 'fileCount' => $fileCount]);
     }
@@ -67,6 +67,7 @@ class WhatnewController extends Controller
     public function show(Whatnew $whatnew)
     {
         //
+        return view('whatnew.show',['whatnew' => $whatnew] );
     }
 
     /**
