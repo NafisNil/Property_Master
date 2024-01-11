@@ -5,6 +5,9 @@ use App\Http\Controllers\NewfileController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\WhatnewController;
+use App\Http\Controllers\AnnouncementController;
+use App\Http\Controllers\ComplaintypeController;
+use App\Http\Controllers\ComplainController;
 //nafis controller
 use App\Http\Controllers\Admin\AccountHolderController;
 use App\Http\Controllers\Admin\JobOrderController;
@@ -152,7 +155,11 @@ Route::middleware(['auth', 'check_registration_complete', 'lang','logintime'])->
   Route::get('welcome-active/{id}', [WelcomeController::class, 'active'])->name('welcome.active');
   Route::get('welcome-post/{id}', [WelcomeController::class, 'post'])->name('welcome.post');
   Route::resource('whatnew', WhatnewController::class);
-
+  Route::resource('announcement', AnnouncementController::class);
+  Route::get('announcement-active/{id}', [AnnouncementController::class, 'active'])->name('announcement.active');
+  Route::get('announcement-post/{id}', [AnnouncementController::class, 'post'])->name('announcement.post');
+  Route::resource('complaintype', ComplaintypeController::class);
+  Route::resource('complain', ComplainController::class);
   //nafis route
     Route::group(['namespace' => 'Admin', 'middleware' => 'prevent-back-history'], function () {
         Route::get('information', [InformationController::class, 'index'])->name('information.index');

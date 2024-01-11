@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameSchoolAnnouncementTable extends Migration
+class CreateComplaintypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,11 @@ class RenameSchoolAnnouncementTable extends Migration
      */
     public function up()
     {
-        Schema::rename('school_announcment', 'school_announcement');
+        Schema::create('complaintypes', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class RenameSchoolAnnouncementTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('complaintypes');
     }
 }

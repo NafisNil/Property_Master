@@ -37,13 +37,30 @@
                 <i class="link-icon" data-feather="layers"></i> 
                 What is new
             </a>
+
+            <a href="{{ route('announcement.index') }}" class=" {{$route == 'announcement.index'?'active':''}}" >
+                <i class="link-icon" data-feather="layers"></i> 
+                Announcement
+            </a>
+
+
+            <a href="{{ route('complaintype.index') }}" class=" {{$route == 'complaintype.index'?'active':''}}" >
+                <i class="link-icon" data-feather="layers"></i> 
+                Complain Type
+            </a>
        </li>
-                @foreach($items as $item)
+       <li>
+        <a href="{{ route('complain.index') }}" class=" {{$route == 'complain.index'?'active':''}}" >
+            <i class="link-icon" data-feather="layers"></i> 
+            Complain 
+        </a>
+       </li>
+    {{--         @foreach($items as $item)
                     <div>
                         <x-sidebar.item :item="$item"></x-sidebar.item>
                       
                     </div>
-                @endforeach
+                @endforeach--}}     
             </ul>
         </nav>
     </div>

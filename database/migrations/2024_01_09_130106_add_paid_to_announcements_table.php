@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyDatatypeOfSchoolAnnouncementTable extends Migration
+class AddPaidToAnnouncementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class ModifyDatatypeOfSchoolAnnouncementTable extends Migration
      */
     public function up()
     {
-        Schema::table('school_announcement', function (Blueprint $table){
-            $table->string('post_in_edudip')->change();
-            $table->string('post_in_admdip')->change();
-            $table->string('post_in_accounthold')->change();
+        Schema::table('announcements', function (Blueprint $table) {
+            //
+            $table->string('status')->default('0')->nullable();
+            $table->string('post')->default('0')->nullable();
         });
     }
 
@@ -27,6 +27,8 @@ class ModifyDatatypeOfSchoolAnnouncementTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('announcements', function (Blueprint $table) {
+            //
+        });
     }
 }
