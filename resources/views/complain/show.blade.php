@@ -44,15 +44,20 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div id="htmlContent">
             <img src="{{ asset('frontend/assets/img/about.jpg') }}" alt="" style="height: 50px;width:50px">
-            <h2 style=”color: #0094ff”>{{ $announcement->subject }}</h2>
-            <h3>{{ $announcement->issued_by }}</h3>
-            <p>{!! $announcement->details !!}</p>
+            <h2 style=”color: #0094ff”>{{ $complain->complaintype->name }}</h2>
+            <h3>{{ $complain->reported_by }}</h3>
+            <p>Time : {!! $complain->time !!}</p>
             <br>
-            <p>Priority : <b>{{ $announcement->priority }}</b></p>
-            <h6>Action : <b>{{ $announcement->action }}</b></h6>
-            <h5>Receivers : <b>{{ $announcement->receivers }}</b></h5>
-            <h6>Acknowledge By : <b>{{ $announcement->acknowledge }}</b></h6>
-            <h6>Due Date : <b>{{ $announcement->due_date }}</b></h6>
+            <p><b>{!! $complain->desc !!}</b></p>
+            <h6>@if ($complain->complain_type == '`1')
+                It is happened before
+            @else
+            It was not happened before
+            @endif</b></h6>
+            <p><b>People who are involved : {!! $complain->people !!}</b></p>
+            <h5>Receivers : <b>{{ $complain->receivers }}</b></h5>
+            <h6>Acknowledge By : <b>{{ $complain->acknowledge }}</b></h6>
+           
             </div>
            
             <center>

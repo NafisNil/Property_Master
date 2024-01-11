@@ -160,6 +160,8 @@ Route::middleware(['auth', 'check_registration_complete', 'lang','logintime'])->
   Route::get('announcement-post/{id}', [AnnouncementController::class, 'post'])->name('announcement.post');
   Route::resource('complaintype', ComplaintypeController::class);
   Route::resource('complain', ComplainController::class);
+  Route::get('complain-active/{id}', [ComplainController::class, 'active'])->name('complain.active');
+  Route::get('complain-post/{id}', [ComplainController::class, 'post'])->name('complain.post');
   //nafis route
     Route::group(['namespace' => 'Admin', 'middleware' => 'prevent-back-history'], function () {
         Route::get('information', [InformationController::class, 'index'])->name('information.index');

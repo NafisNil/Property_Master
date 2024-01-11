@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ComplainRequest extends FormRequest
+class NoticeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ComplainRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -25,15 +25,6 @@ class ComplainRequest extends FormRequest
     {
         return [
             //
-            'reported_by' => 'required',
-            'time' => 'required',
-            'complain_type' => 'required',
-            'desc' => 'required',
-            'happened_before' => 'required',
-            'people' => 'required',
-            'receivers' => 'required',
-            'acknowledge' => 'required',
-          
         ];
     }
 }

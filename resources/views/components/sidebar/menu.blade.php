@@ -55,12 +55,12 @@
             Complain 
         </a>
        </li>
-    {{--         @foreach($items as $item)
+            @foreach($items as $item)
                     <div>
                         <x-sidebar.item :item="$item"></x-sidebar.item>
                       
                     </div>
-                @endforeach--}}     
+                @endforeach  
             </ul>
         </nav>
     </div>

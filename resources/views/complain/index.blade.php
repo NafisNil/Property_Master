@@ -1,18 +1,18 @@
 @extends('layouts.master')
 
 @section('page_title')
-    Announcement
+    Complain
 @endsection
 
 @section('content')
 
 <x-content>
     <x-slot name="header">
-        <h3>Announcement</h3>
-        <a href="{{ route('announcement.create') }}">
+        <h3>Complain</h3>
+        <a href="{{ route('complain.create') }}">
             <button type="button" class="btn btn-primary mb-2 text-right">
                 <i class="fa fa-plus mr-2"></i>
-                Add Announcement
+                Add Complain
             </button>
         </a>
     </x-slot>
@@ -23,7 +23,7 @@
         <div class="card">
             <div class="card-body">
 
-                <h6 class="card-title">Announcement</h6> - <h6>Total announcement : {{ @$fileCount }}</h6> <br>
+                <h6 class="card-title">Complain</h6> - <h6>Total complain : {{ @$fileCount }}</h6> <br>
                 <div class="table-responsive">
 
 
@@ -31,11 +31,11 @@
                         <thead>
                         <tr>
                             <th class="text-center">Posted Date</th>
-                            <th class="text-center">Issued By</th>
-                            <th class="text-center">Priority</th>
-                            <th class="text-center">Subject</th>
-                            <th class="text-center">Details</th>
-                            <th class="text-center">Actions</th>
+                            <th class="text-center">Reported By</th>
+                            <th class="text-center">Complain Type</th>
+                            <th class="text-center">Is it happened before?</th>
+                            <th class="text-center">Description</th>
+                            <th class="text-center">People</th>
                             <th class="text-center">Receivers</th>
                             <th class="text-center">Acknowledge</th>
                             <th class="text-center">Status</th>
@@ -43,20 +43,29 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @if(!empty($announcement))
+                        @if(!empty($complain))
 
-                            @foreach($announcement as $key => $item)
+                            @foreach($complain as $key => $item)
 
                                 <tr>
                                     <td class="text-left">
                                         {{ $item->created_at->format('d M, Y') }}</td>
                                     <td class="text-left">
-                                        {{ $item->issued_by }}</td>
-                                        <td class="text-left">{{$item->priority}}</td>
-                                    <td class="text-left">{{$item->subject}}</td>
-                                    <td class="text-left" title="{!! $item->details !!}">{!! substr($item->details , 0, 120) !!}...</td>
-                                    <td class="text-left">{{$item->action}}</td>
-                                    <td class="text-left">{{$item->receivers}}</td>
+                                        {{ $item->reported_by }}</td>
+                                        <td class="text-left">{{$item->time}}</td>
+                                    <td class="text-left">
+                                        {{ $item->complaintype->name }}
+                                    </td>
+                                    <td class="text-left" title="{!! $item->desc !!}">{!! substr($item->desc , 0, 120) !!}...</td>
+                                    <td class="text-left">
+                                        @if (@$item->happened_before == '1')
+                                            Yes
+                                        @else
+                                            No
+                                        @endif
+                                    </td>
+                                    <td class="text-left">{!!$item->people!!}</td>
+                                    <td class="text-left">{!!$item->receivers!!}</td>
                                     <td class="text-left">{{$item->acknowledge}}</td>
                                     <td class="text-left">@if ($item->status == '0')
                                         <span class="text-danger">Inactive</span>
@@ -66,34 +75,34 @@
                                     </td>
                                     <td style=" text-align: center;">
                                         <a
-                                            href="{{route('announcement.show', [$item])}}"
+                                            href="{{route('complain.show', [$item])}}"
                                             class="btn btn-info">View</a>
                                             
                     
                                         <a
-                                            href="{{route('announcement.edit', [$item])}}"
+                                            href="{{route('complain.edit', [$item])}}"
                                             class="btn btn-primary">Edit</a>
                                         <button
-                                            data-href="{{route('announcement.destroy', [$item])}}"
+                                            data-href="{{route('complain.destroy', [$item])}}"
                                             class="btn btn-danger delete-account-holder-btn"
                                         >Delete
                                         </button>
 
-                                        {!! Form::open(['url' => route('announcement.destroy', [$item]), 'method' => 'delete', 'id'=>'deleteAccountHolderForm']) !!}
+                                        {!! Form::open(['url' => route('complain.destroy', [$item]), 'method' => 'delete', 'id'=>'deleteAccountHolderForm']) !!}
 
                                         {!! Form::close() !!}
 
 
                                         @if (@$item->status == '0')
-                                        <a href="{{ route('announcement.active', [$item->id]) }}" class="btn btn-sm btn-success">Active</a>
+                                        <a href="{{ route('complain.active', [$item->id]) }}" class="btn btn-sm btn-success">Active</a>
                                     @else
-                                        <a href="{{ route('announcement.active',[$item->id]) }}" class="btn btn-sm btn-danger">Inactive</a>
+                                        <a href="{{ route('complain.active',[$item->id]) }}" class="btn btn-sm btn-danger">Inactive</a>
                                     @endif
 
                                     @if (@$item->post == '0')
-                                    <a href="{{ route('announcement.post',[$item->id]) }}" class="btn btn-sm btn-success">Post</a>
+                                    <a href="{{ route('complain.post',[$item->id]) }}" class="btn btn-sm btn-success">Post</a>
                                 @else
-                                    <a href="{{ route('announcement.post',[$item->id]) }}" class="btn btn-sm btn-danger">Repost</a>
+                                    <a href="{{ route('complain.post',[$item->id]) }}" class="btn btn-sm btn-danger">Repost</a>
                                 @endif
 
                                     </td>

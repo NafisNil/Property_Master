@@ -44,9 +44,17 @@ class ComplainController extends Controller
     public function store(ComplainRequest $request)
     {
         //
-        $complain = Complaintype::create([
-            'name' => $request->name,
-           
+       
+        $complain = Complain::create([
+            'reported_by' => $request->reported_by,
+            'time' => $request->time,
+            'complain_type' => $request->complain_type,
+            'desc' => $request->desc,
+            'happened_before' => $request->happened_before,
+            'people' => $request->people,
+            'receivers' => $request->receivers,
+            'acknowledge' => $request->acknowledge,
+       
         ]);
       //  dd($request->all());
         $complain->save();
@@ -110,7 +118,7 @@ class ComplainController extends Controller
     }
 
     public function active($id){
-        $complain  =Announcement::find($id);
+        $complain  =Complain::find($id);
         if ($complain->status == 0) {
             # code...
             $complain->status = 1;
@@ -124,7 +132,7 @@ class ComplainController extends Controller
     }
 
     public function post($id){
-        $complain  =Announcement::find($id);
+        $complain  =Complain::find($id);
         if ($complain->post == 0) {
             # code...
             $complain->post = 1;
