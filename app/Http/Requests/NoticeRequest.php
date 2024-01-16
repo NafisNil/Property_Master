@@ -13,7 +13,7 @@ class NoticeRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,9 @@ class NoticeRequest extends FormRequest
     {
         return [
             //
+            'pdf' => 'required',
+            'title' => 'required',
+            'posted_by' => 'required'
         ];
     }
 }

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Notice;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\NoticeRequest;   
+use Auth;
 class NoticeController extends Controller
 {
     /**
@@ -15,6 +16,9 @@ class NoticeController extends Controller
     public function index()
     {
         //
+        $fileCount = Notice::count();
+        $notice = Notice::orderBy('id', 'desc')->get();
+        return view('notice.index', ['notice' => $notice, 'fileCount' => $fileCount]);
     }
 
     /**
@@ -25,6 +29,9 @@ class NoticeController extends Controller
     public function create()
     {
         //
+                
+        $fileCount = Notice::count();
+        return view('notice.create', ['fileCount'=>$fileCount]);
     }
 
     /**
@@ -33,9 +40,22 @@ class NoticeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NoticeRequest $request)
     {
         //
+        $notice = Notice::create([
+            'posted_by' => Auth::user()->name,
+            'title' => $request->title,
+          
+        ]);
+        if ($request->hasFile('file')) {
+            @unlink('storage/'.$notice->pdf);
+            $this->_uploadfile($request, $notice);
+        }
+      //  dd($request->all());
+        $notice->save();
+        toastr()->success('Information saved!');
+        return redirect()->route('notice.index');
     }
 
     /**
@@ -81,5 +101,20 @@ class NoticeController extends Controller
     public function destroy(Notice $notice)
     {
         //
+    }
+
+    private function _uploadfile($request, $notice)
+    {
+        # code...
+        if($request->file()) {
+            $fileName = time().'_'.$request->file->getClientOriginalName();
+            
+                  $request->file->move('storage/',$fileName);
+
+         //  dd($fileName);
+            $notice->pdf = $fileName;
+            $notice->save();
+        }
+       
     }
 }

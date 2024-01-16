@@ -1,18 +1,18 @@
 @extends('layouts.master')
 
 @section('page_title')
-    Company List
+    Notice
 @endsection
 
 @section('content')
 
 <x-content>
     <x-slot name="header">
-        <h3>Company List</h3>
-        <a href="{{ route('company.create') }}">
+        <h3>Notice</h3>
+        <a href="{{ route('notice.create') }}">
             <button type="button" class="btn btn-primary mb-2 text-right">
                 <i class="fa fa-plus mr-2"></i>
-                Company Add
+                Add Notice
             </button>
         </a>
     </x-slot>
@@ -23,68 +23,62 @@
         <div class="card">
             <div class="card-body">
 
-                <h6 class="card-title">Company List</h6>
+                <h6 class="card-title">Notice</h6> - <h6>Total notice : {{ @$fileCount }}</h6> <br>
                 <div class="table-responsive">
 
-                    
+
                     <table id="datatable" class="table table-bordered">
                         <thead>
                         <tr>
-                            <th class="text-center">Name</th>
-                            <th class="text-center">Type</th>
-                            <th class="text-center">Login Duration</th>
-                            <th class="text-center">Username</th>
-                            <th class="text-center">Message</th>
+                            <th class="text-center">Title</th>
+                           
+                            <th class="text-center">Status</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @if(!empty($company))
+                        @if(!empty($notice))
 
-                            @foreach($company as $key => $item)
+                            @foreach($notice as $key => $item)
 
                                 <tr>
-                                    <td class="text-left">
-                                      
-                                        {{$item->name}}</td>
-                                    <td class="text-left">
-                                        @if ($item->type == 'single')
-                                            Single Building
-                                        @elseif($item->type == 'multiple')
-                                            Multiple Building
-                                        @endif
+                                   
+                                    <td class="text-left"><a href="{{(!empty($item->pdf))?URL::to('storage/'.$item->pdf):URL::to('image/no_image.png')}}"> {{ $item->title }}</a>
+                                       </td>
+                                       
+                                    <td class="text-left">@if ($item->status == '0')
+                                        <span class="text-danger">Inactive</span>
+                                    @else
+                                    <span class="text-success">Active</span>
+                                    @endif
                                     </td>
-                                    <td class="text-left">
-                                        @php
-                                           
-                                           $seconds = $item->login_duration;
-                                            $hours = floor($seconds / 3600);
-                                            $minutes = floor(($seconds % 3600) / 60);
-                                            $seconds = $seconds % 60;
-                                            
-                                        @endphp
-                                        {{ $hours . ' hours ' .$minutes. '  minutes ' .$seconds. ' seconds ' }}
-                                    </td>
-                                    <td class="text-left">{{$item->username}}</td>
-                                    <td class="text-left">{!! $item->message!!}</td>
-                                  
                                     <td style=" text-align: center;">
-                                        <button
-                                            class="btn btn-info view-account-holder-btn"
-                                            data-href="{{route('company.show', [$item])}}">View
-                                        </button>
+                                            
                                         <a
-                                            href="{{route('company.edit', [$item])}}"
+                                            href="{{route('notice.edit', [$item])}}"
                                             class="btn btn-primary">Edit</a>
                                         <button
-                                            data-href="{{route('company.destroy', [$item])}}"
+                                            data-href="{{route('notice.destroy', [$item])}}"
                                             class="btn btn-danger delete-account-holder-btn"
                                         >Delete
                                         </button>
 
-                                        {!! Form::open(['url' => route('company.destroy', [$item]), 'method' => 'delete', 'id'=>'deleteAccountHolderForm']) !!}
+                                        {!! Form::open(['url' => route('notice.destroy', [$item]), 'method' => 'delete', 'id'=>'deleteAccountHolderForm']) !!}
 
                                         {!! Form::close() !!}
+
+
+                                        @if (@$item->status == '0')
+                                        <a href="{{ route('notice.active', [$item->id]) }}" class="btn btn-sm btn-success">Active</a>
+                                    @else
+                                        <a href="{{ route('notice.active',[$item->id]) }}" class="btn btn-sm btn-danger">Inactive</a>
+                                    @endif
+
+                                    @if (@$item->post == '0')
+                                    <a href="{{ route('notice.post',[$item->id]) }}" class="btn btn-sm btn-success">Post</a>
+                                @else
+                                    <a href="{{ route('notice.post',[$item->id]) }}" class="btn btn-sm btn-danger">Repost</a>
+                                @endif
 
                                     </td>
 
