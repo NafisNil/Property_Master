@@ -14,7 +14,7 @@
         <x-slot name="header">
             <h3>{{__('update-Notice')}}</h3>
         </x-slot>
-        <form action="{{ route('notice.store') }}" method="POST">
+        <form action="{{ route('notice.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @include('notice.form')
         </form>

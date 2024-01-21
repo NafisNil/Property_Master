@@ -43,17 +43,17 @@ class NoticeController extends Controller
     public function store(NoticeRequest $request)
     {
         //
+
         $notice = Notice::create([
-            'posted_by' => Auth::user()->name,
+            'posted_by' => $request->posted_by,
             'title' => $request->title,
-          
+            'pdf' => $request->file
         ]);
+
         if ($request->hasFile('file')) {
-            @unlink('storage/'.$notice->pdf);
             $this->_uploadfile($request, $notice);
         }
-      //  dd($request->all());
-        $notice->save();
+
         toastr()->success('Information saved!');
         return redirect()->route('notice.index');
     }
@@ -78,6 +78,9 @@ class NoticeController extends Controller
     public function edit(Notice $notice)
     {
         //
+        $fileCount = Notice::count();
+        
+        return view('notice.edit',['notice' => $notice, 'fileCount'=>$fileCount] );
     }
 
     /**
@@ -90,6 +93,19 @@ class NoticeController extends Controller
     public function update(Request $request, Notice $notice)
     {
         //
+        $notice->update([
+            'posted_by' => Auth::user()->name,
+            'title' => $request->title,
+            'pdf' => $request->file
+        ]);
+        if ($request->hasFile('file')) {
+            @unlink('storage/'.$notice->pdf);
+            $this->_uploadfile($request, $notice);
+        }
+      //  dd($request->all());
+        $notice->save();
+        toastr()->success('Information updated!');
+        return redirect()->route('notice.index');
     }
 
     /**
@@ -101,6 +117,9 @@ class NoticeController extends Controller
     public function destroy(Notice $notice)
     {
         //
+        $notice->delete();
+        toastr()->success('Information deleted!');
+        return redirect()->route('notice.index');
     }
 
     private function _uploadfile($request, $notice)
@@ -117,4 +136,34 @@ class NoticeController extends Controller
         }
        
     }
+
+    public function active($id){
+        $notice  =Notice::find($id);
+        if ($notice->status == 0) {
+            # code...
+            $notice->status = 1;
+        }else{
+            $notice->status = 0;
+        }
+
+        $notice->save();
+        toastr()->success('Information updated!');
+        return redirect()->route('notice.index');
+    }
+
+    public function post($id){
+        $notice  =Notice::find($id);
+        if ($notice->post == 0) {
+            # code...
+            $notice->post = 1;
+        }else{
+            $notice->post = 0;
+        }
+      
+        $notice->save();
+        toastr()->success('Information updated!');
+        return redirect()->route('notice.index');
+    }
+
+
 }

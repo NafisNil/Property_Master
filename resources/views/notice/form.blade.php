@@ -3,6 +3,13 @@
         <div class="form-group">
             <label for="name">Title</label>
             <input type="text" name="title" id="" value="{{ old('title', @$notice->title) }}" style="width: 100%; padding: 10px; height: auto;"  >
+        
+        </div>
+
+        <div class="form-group">
+            <label for="name">Posted By</label>
+            <input type="text" name="posted_by" id=""   value="{{ Auth::user()->user_name }}" style="width: 100%; padding: 10px; height: auto;"  readonly>
+        
         </div>
         <div class="form-group">
             <label for="name">File</label>

@@ -55,6 +55,26 @@
             Complain 
         </a>
        </li>
+
+       <li>
+        <a href="{{ route('notice.index') }}" class=" {{$route == 'notice.index'?'active':''}}" >
+            <i class="link-icon" data-feather="layers"></i> 
+            Notice 
+        </a>
+       </li>
+
+       <li>
+        <a href="{{ route('task.index') }}" class=" {{$route == 'task.index'?'active':''}}" >
+            <i class="link-icon" data-feather="layers"></i> 
+            Task 
+        </a>
+       </li>
+       <li>
+        <a href="{{ route('remainder.index') }}" class=" {{$route == 'remainder.index'?'active':''}}" >
+            <i class="link-icon" data-feather="layers"></i> 
+            Remainder 
+        </a>
+       </li>
      {{--    @foreach($items as $item)
                     <div>
                         <x-sidebar.item :item="$item"></x-sidebar.item>

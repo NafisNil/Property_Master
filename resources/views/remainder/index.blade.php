@@ -1,18 +1,18 @@
 @extends('layouts.master')
 
 @section('page_title')
-    Notice
+    Remainder
 @endsection
 
 @section('content')
 
 <x-content>
     <x-slot name="header">
-        <h3>Notice</h3>
-        <a href="{{ route('notice.create') }}">
+        <h3>remiander</h3>
+        <a href="{{ route('remainder.create') }}">
             <button type="button" class="btn btn-primary mb-2 text-right">
                 <i class="fa fa-plus mr-2"></i>
-                Add Notice
+                Add remiander
             </button>
         </a>
     </x-slot>
@@ -23,61 +23,77 @@
         <div class="card">
             <div class="card-body">
 
-                <h6 class="card-title">Notice</h6> - <h6>Total notice : {{ @$fileCount }}</h6> <br>
+                <h6 class="card-title">Remainder</h6> - <h6>Total remainder : {{ @$fileCount }}</h6> <br>
                 <div class="table-responsive">
 
 
                     <table id="datatable" class="table table-bordered">
                         <thead>
                         <tr>
-                            <th class="text-center">Title</th>
-                            <th class="text-center">Posted By</th>
+                            <th class="text-center">Posted Date</th>
+                            <th class="text-center">Issued By</th>
+                            <th class="text-center">Priority</th>
+                            <th class="text-center">Subject</th>
+                            <th class="text-center">Details</th>
+                            <th class="text-center">Actions</th>
+                            <th class="text-center">Receivers</th>
+                            <th class="text-center">Due Date</th>
                             <th class="text-center">Status</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @if(!empty($notice))
+                        @if(!empty($remainder))
 
-                            @foreach($notice as $key => $item)
+                            @foreach($remainder as $key => $item)
 
                                 <tr>
-                                   
-                                    <td class="text-left"><a href="{{(!empty($item->pdf))?URL::to('storage/'.$item->pdf):URL::to('image/no_image.png')}}"> {{ $item->title }}</a>
-                                       </td>
-                                       <td>{{ $item->posted_by }}</td>
-                                       <td class="text-left">@if ($item->status == '0')
+                                    <td class="text-left">
+                                        {{ $item->created_at->format('d M, Y') }}</td>
+                                    <td class="text-left">
+                                        {{ $item->issued_by }}</td>
+                                        <td class="text-left">{{$item->priority}}</td>
+                                    <td class="text-left">{{$item->subject}}</td>
+                                    <td class="text-left" title="{!! $item->details !!}">{!! substr($item->details , 0, 120) !!}...</td>
+                                    <td class="text-left">{{$item->action}}</td>
+                                    <td class="text-left">{{$item->receivers}}</td>
+                                    <td class="text-left">{{$item->due_date}}</td>
+                                    <td class="text-left">@if ($item->status == '0')
                                         <span class="text-danger">Inactive</span>
                                     @else
                                     <span class="text-success">Active</span>
                                     @endif
                                     </td>
                                     <td style=" text-align: center;">
-                                            
                                         <a
-                                            href="{{route('notice.edit', [$item])}}"
+                                            href="{{route('remainder.show', [$item])}}"
+                                            class="btn btn-info">View</a>
+                                            
+                    
+                                        <a
+                                            href="{{route('remainder.edit', [$item])}}"
                                             class="btn btn-primary">Edit</a>
                                         <button
-                                            data-href="{{route('notice.destroy', [$item])}}"
+                                            data-href="{{route('remainder.destroy', [$item])}}"
                                             class="btn btn-danger delete-account-holder-btn"
                                         >Delete
                                         </button>
 
-                                        {!! Form::open(['url' => route('notice.destroy', [$item]), 'method' => 'delete', 'id'=>'deleteAccountHolderForm']) !!}
+                                        {!! Form::open(['url' => route('remainder.destroy', [$item]), 'method' => 'delete', 'id'=>'deleteAccountHolderForm']) !!}
 
                                         {!! Form::close() !!}
 
 
                                         @if (@$item->status == '0')
-                                        <a href="{{ route('notice.active', [$item->id]) }}" class="btn btn-sm btn-success">Active</a>
+                                        <a href="{{ route('remainder.active', [$item->id]) }}" class="btn btn-sm btn-success">Active</a>
                                     @else
-                                        <a href="{{ route('notice.active',[$item->id]) }}" class="btn btn-sm btn-danger">Inactive</a>
+                                        <a href="{{ route('remainder.active',[$item->id]) }}" class="btn btn-sm btn-danger">Inactive</a>
                                     @endif
 
                                     @if (@$item->post == '0')
-                                    <a href="{{ route('notice.post',[$item->id]) }}" class="btn btn-sm btn-success">Post</a>
+                                    <a href="{{ route('remainder.post',[$item->id]) }}" class="btn btn-sm btn-success">Post</a>
                                 @else
-                                    <a href="{{ route('notice.post',[$item->id]) }}" class="btn btn-sm btn-danger">Repost</a>
+                                    <a href="{{ route('remainder.post',[$item->id]) }}" class="btn btn-sm btn-danger">Repost</a>
                                 @endif
 
                                     </td>

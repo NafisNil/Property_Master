@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NoticeRequest extends FormRequest
+class RemainderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,16 @@ class NoticeRequest extends FormRequest
     {
         return [
             //
-            'file' => 'required',
-            'title' => 'required',
-            'posted_by' => 'required',
-           
+            'issued_by' => 'required',
+            'subject' => 'required',
+            'details' => 'required',
+            'priority' => 'required',
+            'location' => 'required',
+            'time' => 'required',
+            'action' => 'required',
+            'due_date' => 'required',
+            'receivers' => 'required',
+          
         ];
     }
 }

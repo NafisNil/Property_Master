@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Notice extends Model
 {
     use HasFactory;
-    protected $fillable = ['pdf', 'title'];
+    protected $fillable = ['pdf', 'title', 'posted_by', 'status', 'post'];
 }

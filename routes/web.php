@@ -8,6 +8,10 @@ use App\Http\Controllers\WhatnewController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\ComplaintypeController;
 use App\Http\Controllers\ComplainController;
+use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\RemainderController;
+use App\Http\Controllers\CalenderController;
 //nafis controller
 use App\Http\Controllers\Admin\AccountHolderController;
 use App\Http\Controllers\Admin\JobOrderController;
@@ -149,6 +153,15 @@ Route::get('/', [FrontEndController::class, 'index'])
 
 Route::middleware(['auth', 'check_registration_complete', 'lang','logintime'])->group(function () {
   //nafis route
+  Route::resource('notice', NoticeController::class);
+  Route::resource('remainder', RemainderController::class);
+  Route::get('remainder-active/{id}', [RemainderController::class, 'active'])->name('remainder.active');
+  Route::get('remainder-post/{id}', [RemainderController::class, 'post'])->name('remainder.post');
+  Route::resource('task', TaskController::class);
+  Route::get('task-active/{id}', [TaskController::class, 'active'])->name('task.active');
+  Route::get('task-post/{id}', [TaskController::class, 'post'])->name('task.post');
+  Route::get('notice-active/{id}', [NoticeController::class, 'active'])->name('notice.active');
+  Route::get('notice-post/{id}', [NoticeController::class, 'post'])->name('notice.post');
   Route::resource('newfile', NewfileController::class);
   Route::resource('company', CompanyController::class);
   Route::resource('welcome', WelcomeController::class);
@@ -164,6 +177,9 @@ Route::middleware(['auth', 'check_registration_complete', 'lang','logintime'])->
   Route::get('complain-post/{id}', [ComplainController::class, 'post'])->name('complain.post');
   //nafis route
     Route::group(['namespace' => 'Admin', 'middleware' => 'prevent-back-history'], function () {
+        Route::get('calender', [CalendarController::class, 'index'])->name('calender');
+
+
         Route::get('information', [InformationController::class, 'index'])->name('information.index');
         Route::get('annoncment', [AnnoncmentController::class, 'index'])->name('annoncment.index');
         Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');

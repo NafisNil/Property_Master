@@ -4,7 +4,7 @@
 @endpush
 
 @section('page_title')
-    Notice
+    Remainder
 @endsection
 
 @section('content')
@@ -12,12 +12,12 @@
     @include('partials.error-alert', ['errors' => $errors])
     <x-content>
         <x-slot name="header">
-            <h3>{{__('Notice-newfile')}}</h3>
+            <h3>{{__('Remainder-newfile')}}</h3>
         </x-slot>
-        <form action="{{ route('notice.update', [$notice]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('remainder.update', [$remainder]) }}" method="POST">
             @csrf
             @method('PUT')
-            @include('notice.form')
+            @include('remainder.form')
             
         </form>
     </x-content>

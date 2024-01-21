@@ -4,7 +4,7 @@
 @endpush
 
 @section('page_title')
-    Notice
+    Task -  Create
 @endsection
 
 @section('content')
@@ -12,16 +12,15 @@
     @include('partials.error-alert', ['errors' => $errors])
     <x-content>
         <x-slot name="header">
-            <h3>{{__('Notice-newfile')}}</h3>
+            <h3>{{__('update-Task')}}</h3>
         </x-slot>
-        <form action="{{ route('notice.update', [$notice]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('task.store') }}" method="POST">
             @csrf
-            @method('PUT')
-            @include('notice.form')
-            
+            @include('task.form')
         </form>
     </x-content>
 @endsection
 
 @push('js')
+
 @endpush
