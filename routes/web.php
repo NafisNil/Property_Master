@@ -153,6 +153,16 @@ Route::get('/', [FrontEndController::class, 'index'])
 
 Route::middleware(['auth', 'check_registration_complete', 'lang','logintime'])->group(function () {
   //nafis route
+  Route::get('calender-show', [CalenderController::class, 'index'])->name('calender_show');
+  Route::get('all-remainder', [CalenderController::class, 'getRemainder'])->name('all_remainder');
+  Route::delete('/remainder/{id}', [CalenderController::class, 'deleteRemainder'])->name('delete_remainder');
+ Route::put('/remainder/{id}', [CalenderController::class, 'update']);
+  Route::put('/remainder/{id}/resize', [CalenderController::class, 'resize']);
+  Route::get('/remainder/search', [CalenderController::class, 'search']);
+  
+ // Route::view('add-remainder', 'schedule.add');
+  Route::post('create-remainder', [CalenderController::class, 'create']);
+
   Route::resource('notice', NoticeController::class);
   Route::resource('remainder', RemainderController::class);
   Route::get('remainder-active/{id}', [RemainderController::class, 'active'])->name('remainder.active');
@@ -177,7 +187,7 @@ Route::middleware(['auth', 'check_registration_complete', 'lang','logintime'])->
   Route::get('complain-post/{id}', [ComplainController::class, 'post'])->name('complain.post');
   //nafis route
     Route::group(['namespace' => 'Admin', 'middleware' => 'prevent-back-history'], function () {
-        Route::get('calender', [CalendarController::class, 'index'])->name('calender');
+
 
 
         Route::get('information', [InformationController::class, 'index'])->name('information.index');

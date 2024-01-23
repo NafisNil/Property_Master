@@ -3,9 +3,12 @@
 @section('page_title')
     Calender
 @endsection
-
+{{-- https://laraveldaily.com/post/laravel-appointment-calendar-fullcalendar-demo --}}
 @section('content')
-
+<link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid/main.css" rel="stylesheet" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <x-content>
     <x-slot name="header">
         <h3>Calender</h3>
@@ -19,57 +22,36 @@
             <div class="card-body">
 
                 <h6 class="card-title">Calender</h6> 
-                <div class="table-responsive">
-
-
-                    
-
-                </div>
+                <div id='calendar'></div>
             </div>
         </div>
     </div>
 </div>
+
 @push('js')
-    <script src="{{ asset('assets/vendors/toastr/toastr.min.js') }}"></script>
-    {!! Toastr::message() !!}
-    <script src="{{ asset('assets/vendors/datatables.net/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
-    <script src="{{ asset('js/datatable_custom.js') }}"></script>
 
-    <script type="text/javascript">
 
-        $(document).ready(function () {
-            $('#datatable').DataTable({
-                "scrollY": "30%",
-                "scrollCollapse": true,
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+        <script> 
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'timeGridWeek',
+                    slotMinTime: '8:00:00',
+                    slotMaxTime: '19:00:00',
+                    events: @json($events),
+                });
+                calendar.render();
             });
-            $('.dataTables_length').addClass('bs-select');
-        });
+        </script>
 
-        $(document).on('click', '.view-account-holder-btn', function () {
-            console.log('ddddd');
-            $('#viewAccountHolder').load($(this).data('href'), function () {
-                $(this).modal('show');
-            })
-        })
 
-        $(document).on('click', '.delete-account-holder-btn', function () {
-            let url = $(this).data('href');
-
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#4e90bd',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                $('#deleteAccountHolderForm').submit();
-            })
-        });
-
-    </script>
 @endpush
 @endsection
 
