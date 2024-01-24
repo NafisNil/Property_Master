@@ -12,6 +12,7 @@ use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\RemainderController;
 use App\Http\Controllers\CalenderController;
+use App\Http\Controllers\TodoController;
 //nafis controller
 use App\Http\Controllers\Admin\AccountHolderController;
 use App\Http\Controllers\Admin\JobOrderController;
@@ -164,7 +165,12 @@ Route::middleware(['auth', 'check_registration_complete', 'lang','logintime'])->
   Route::post('create-remainder', [CalenderController::class, 'create']);
 
   Route::resource('notice', NoticeController::class);
+  Route::resource('notice', NoticeController::class);
   Route::resource('remainder', RemainderController::class);
+  Route::resource('todo', TodoController::class);
+  Route::get('todo-active/{id}', [TodoController::class, 'active'])->name('todo.active');
+  Route::get('todo-post/{id}', [TodoController::class, 'post'])->name('todo.post');
+
   Route::get('remainder-active/{id}', [RemainderController::class, 'active'])->name('remainder.active');
   Route::get('remainder-post/{id}', [RemainderController::class, 'post'])->name('remainder.post');
   Route::resource('task', TaskController::class);

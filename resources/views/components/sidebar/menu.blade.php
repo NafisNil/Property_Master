@@ -55,14 +55,24 @@
             Complain 
         </a>
        </li>
-
+       <li>
+        <a href="{{ route('calender_show') }}" class=" {{$route == 'calender_show'?'active':''}}" >
+            <i class="link-icon" data-feather="layers"></i> 
+            Calendar 
+        </a>
+       </li>
        <li>
         <a href="{{ route('notice.index') }}" class=" {{$route == 'notice.index'?'active':''}}" >
             <i class="link-icon" data-feather="layers"></i> 
             Notice 
         </a>
        </li>
-
+       <li>
+        <a href="{{ route('todo.index') }}" class=" {{$route == 'todo.index'?'active':''}}" >
+            <i class="link-icon" data-feather="layers"></i> 
+            Todo List 
+        </a>
+       </li>
        <li>
         <a href="{{ route('task.index') }}" class=" {{$route == 'task.index'?'active':''}}" >
             <i class="link-icon" data-feather="layers"></i> 

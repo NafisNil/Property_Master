@@ -13,7 +13,7 @@ class TodoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,20 @@ class TodoRequest extends FormRequest
     {
         return [
             //
+            'assigned_by' => 'required',
+            'description' => 'required',
+            'objectives' => 'required',
+            'person' => 'required',
+            'ch_name' => 'required',
+            'ch_office' => 'required',
+            'ch_cellphone' => 'required|numeric',
+            'ch_email' => 'required|email',
+            'priority' => 'required',
+            'deadline' => 'required',
+            'location' => 'required',
+            'instruction' => 'required',
+            'room_date_one' => 'required',
+            'room_time_one' => 'required',
         ];
     }
 }
