@@ -85,6 +85,21 @@
             Remainder 
         </a>
        </li>
+       <hr>
+       <li>
+        <a href="{{ route('recurring.index') }}" class=" {{$route == 'recurring.index'?'active':''}}" >
+            <i class="link-icon" data-feather="layers"></i> 
+            Recurring Cycke 
+        </a>
+       </li>
+
+       <li>
+        <a href="{{ route('stype.index') }}" class=" {{$route == 'stype.index'?'active':''}}" >
+            <i class="link-icon" data-feather="layers"></i> 
+            Schedule Type
+        </a>
+       </li>
+       <hr>
      {{--    @foreach($items as $item)
                     <div>
                         <x-sidebar.item :item="$item"></x-sidebar.item>

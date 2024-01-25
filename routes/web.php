@@ -13,6 +13,9 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\RemainderController;
 use App\Http\Controllers\CalenderController;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\RecurringController;
+use App\Http\Controllers\StypeController;
+
 //nafis controller
 use App\Http\Controllers\Admin\AccountHolderController;
 use App\Http\Controllers\Admin\JobOrderController;
@@ -163,7 +166,8 @@ Route::middleware(['auth', 'check_registration_complete', 'lang','logintime'])->
   
  // Route::view('add-remainder', 'schedule.add');
   Route::post('create-remainder', [CalenderController::class, 'create']);
-
+  Route::resource('recurring', RecurringController::class);
+  Route::resource('stype', StypeController::class);
   Route::resource('notice', NoticeController::class);
   Route::resource('notice', NoticeController::class);
   Route::resource('remainder', RemainderController::class);
