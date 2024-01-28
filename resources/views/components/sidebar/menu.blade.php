@@ -99,6 +99,13 @@
             Schedule Type
         </a>
        </li>
+
+       <li>
+        <a href="{{ route('scheduleop.index') }}" class=" {{$route == 'scheduleop.index'?'active':''}}" >
+            <i class="link-icon" data-feather="layers"></i> 
+            Schedule 
+        </a>
+       </li>
        <hr>
      {{--    @foreach($items as $item)
                     <div>

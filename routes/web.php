@@ -15,6 +15,7 @@ use App\Http\Controllers\CalenderController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\RecurringController;
 use App\Http\Controllers\StypeController;
+use App\Http\Controllers\ScheduleopController;
 
 //nafis controller
 use App\Http\Controllers\Admin\AccountHolderController;
@@ -167,6 +168,9 @@ Route::middleware(['auth', 'check_registration_complete', 'lang','logintime'])->
  // Route::view('add-remainder', 'schedule.add');
   Route::post('create-remainder', [CalenderController::class, 'create']);
   Route::resource('recurring', RecurringController::class);
+  Route::resource('scheduleop', ScheduleopController::class);
+  Route::get('scheduleop-active/{id}', [ScheduleopController::class, 'active'])->name('scheduleop.active');
+  Route::get('scheduleop-post/{id}', [ScheduleopController::class, 'post'])->name('scheduleop.post');
   Route::resource('stype', StypeController::class);
   Route::resource('notice', NoticeController::class);
   Route::resource('notice', NoticeController::class);
